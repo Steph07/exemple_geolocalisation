@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <title>ZardevMap</title>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Open Street Map - simple map with popup</title>
+        <link rel="stylesheet" href="js/CloudMade-Leaflet/dist/leaflet.css" type="text/css" media="screen">
+        <!--[if lte IE 8]>
+             <link rel="stylesheet" href="js/CloudMade-Leaflet/dist/leaflet.ie.css" />
+         <![endif]-->
+        
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/CloudMade-Leaflet/dist/leaflet.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">
+<h1>La carte des ZAR'DEV<h1>
+    <br>
+	<div class="row">
+		<div class="img"> <img src="images/dessinlogo.svg"/>
+		</div>
+	</div>
+
+	<div class="row">	
+		<div class="col-md-4">
+			<ul class="liste"><h2>SimplonVE</h2>
+				<li>Poleyrieux accueille 20 simploniens pour sa première promo.</li>
+				<li>Tous ont un parcours et un profil différent.</li>
+				<li>Cette carte permet de situer chacun d'eux.</li>
+			</ul>
+			<img src="images/photogp.svg"/>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+						
+					</div>
+
+					<div class="col-md-2">
+						
+				</div>
+			</div>	
+		</div>
+	</div>
+			<div class="col-md-8">
+				   <div id="cloudmade-oms-map" style="height: 700px"></div>
+<!--         <p>
+            <br />
+            <button type="button" id="cloudmade-oms-positioning" class="btn">Localiser Simplon.co</button>
+        </p> -->
+        <script type="text/javascript" charset="utf-8">
+
+        // init tile service with MapQuest
+        var tilesService = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+            attribution: '',
+            subdomains : ['otile1','otile2','otile3','otile4'],
+            maxZoom: 16,
+        });
+
+        // init map
+        var map = new L.Map('cloudmade-oms-map', 
+            {
+                center: [44.912404,4.43767360689655],
+                zoom: 16,
+                scrollWheelZoom: false
+            }
+        ).addLayer(tilesService);
+    
+        // Ajout cercle Poleyrieux
+        var circle = L.circle([44.912404,4.43767360689655], 50,{
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5
+        }).addTo(map);
+        // Commentaire dans cercle
+        circle.bindPopup("<b>SimplonVE !</b>").openPopup();
+
+        // Ajout coordonnées Marie
+        var marker = L.marker([44.908262, 4.427741]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Marie</b>").openPopup();
+
+        // Ajout coordonnées Laydi
+        var marker = L.marker([44.985832, 4.580621]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Laydi</b>").openPopup();
+
+        // Ajout coordonnées Nicolas
+        var marker = L.marker([44.983730, 4.581239]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Nicolas</b>").openPopup();
+
+        // Ajout coordonnées Sandrine
+        var marker = L.marker([44.9279879, 4.3490131]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Sandrine</b>").openPopup();
+
+        // Ajout coordonnées Rodolphe
+        var marker = L.marker([44.96, 4.53]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Rodolphe</b>").openPopup();
+
+        // Ajout coordonnées Pierre
+        var marker = L.marker([45.0974, 4.86284]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Pierre</b>").openPopup();
+
+        // Ajout coordonnées David
+        var marker = L.marker([45.061559,4.301291]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>David</b>").openPopup();
+
+        // Ajout coordonnées Xavier
+        var marker = L.marker([44.936519, 4.375583]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Xavier</b>").openPopup();
+
+        // Ajout coordonnées Maud
+        var marker = L.marker([44.886528, 4.387454]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Maud</b>").openPopup();
+
+        // Ajout coordonnées Sophie
+        var marker = L.marker([44.905347,4.441025]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Sophie</b>").openPopup();
+
+        // Ajout coordonnées Daniel
+        var marker = L.marker([44.905347,4.441025]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Daniel</b>").openPopup();
+
+        // Ajout coordonnées Ethan
+        var marker = L.marker([44.735457,4.600499]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Ethan</b>").openPopup();
+
+        // Ajout coordonnées Romain
+        var marker = L.marker([44.362047,5.148576]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Romain</b>").openPopup();
+
+        // Ajout coordonnées Mathieu
+        var marker = L.marker([44.826871,4.37245]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Mathieu/b>").openPopup();
+
+         // Ajout coordonnées Tibo
+        var marker = L.marker([44.905347,4.441025]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Thibault</b>").openPopup();
+
+         // Ajout coordonnées Steph
+        var marker = L.marker([44.986623,4.578689]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Stéphane</b>").openPopup();
+
+          // Ajout coordonnées Raph
+        var marker = L.marker([44.620172,4.391056]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Raphael</b>").openPopup();
+
+          // Ajout coordonnées Guy
+        var marker = L.marker([44.905347,4.441025]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Guy</b>").openPopup();
+
+          // Ajout coordonnées Rémi
+        var marker = L.marker([45.043879,5.050129]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Rémi/b>").openPopup();
+
+          // Ajout coordonnées Paul
+        var marker = L.marker([44.905347,4.441025]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Paul</b>").openPopup();
+
+
+        //   var adr_simplon_co = 'http://open.mapquestapi.com/nominatim/v1/search?format=json&q=simplon.co,Montreuil,France';
+        //   var adr_simplon_ve = 'http://open.mapquestapi.com/nominatim/v1/search?format=json&q=poleyrieux,Le Cheylard,France';
+
+        // // Geocode Paris
+        // $('#cloudmade-oms-positioning').click(function() {
+        //     var _this = this;
+        //     $(this).addClass('btn-warning');
+         
+        //     // get position from MapQuest Nominatim service
+        //     $.getJSON(
+        //         adr_simplon_ve, 
+        //         function(data) {
+        //             map.setView([data[0].lat, data[0].lon], 17);
+        //             $(_this).removeClass('btn-warning').addClass('btn-success');
+        //         }
+        //     );
+        //     return false;
+        // });
+            
+        </script> 
+
+
+
+
+				
+			</div>
+	</div>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<hr>
+<footer class="footer">
+	<div class="container">
+	   <a href="http://www.simplon.co/simplon-ve-en-ardeche">Découvrez SimplonVE</a>
+	</div>
+</footer>
+</body>
+</html>
