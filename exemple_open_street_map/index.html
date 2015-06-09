@@ -12,22 +12,19 @@
     </head>
 
     <body>
+
         <div id="cloudmade-oms-map" style="height: 700px"></div>
-        <p>
+<!--         <p>
             <br />
-            <button type="button" id="cloudmade-oms-positioning" class="btn">Localiser Paris</button>
-        </p>
+            <button type="button" id="cloudmade-oms-positioning" class="btn">Localiser Simplon.co</button>
+        </p> -->
         <script type="text/javascript" charset="utf-8">
         
         // init tile service with MapQuest
         var tilesService = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
-            attribution: '\
-                Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,\
-                <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors,\
-                <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>\
-            ',
+            attribution: '',
             subdomains : ['otile1','otile2','otile3','otile4'],
-            //maxZoom: 18
+            maxZoom: 18
         });
 
         // init map
@@ -39,30 +36,54 @@
             }
         ).addLayer(tilesService);
     
-        // Add circle
+        // Ajout cercle Poleyrieux
         var circle = L.circle([44.912404,4.43767360689655], 50,{
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5
         }).addTo(map);
-        // Add popup to marquer
+        // Commentaire dans cercle
         circle.bindPopup("<b>SimplonVE !</b>").openPopup();
 
-        // Geocode Paris
-        $('#cloudmade-oms-positioning').click(function() {
-            var _this = this;
-            $(this).addClass('btn-warning');
-            
-            // get position from MapQuest Nominatim service
-            $.getJSON(
-                'http://open.mapquestapi.com/nominatim/v1/search?format=json&q=Paris,France', 
-                function(data) {
-                    map.setView([data[0].lat, data[0].lon], 17);
-                    $(_this).removeClass('btn-warning').addClass('btn-success');
-                }
-            );
-            return false;
-        });
+        // Ajout coordonnées Marie
+        var marker = L.marker([44.908262, 4.427741]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Marie</b>").openPopup();
+
+        // Ajout coordonnées Laydi
+        var marker = L.marker([44.985832, 4.580621]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Laydi</b>").openPopup();
+
+        // Ajout coordonnées Nicolas
+        var marker = L.marker([44.983730, 4.581239]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Nicolas</b>").openPopup();
+
+        // Ajout coordonnées Nicolas
+        var marker = L.marker([44.983730, 4.581239]).addTo(map);
+        // Ajout commentaires
+        marker.bindPopup("<b>Nicolas</b>").openPopup();
+
+
+        //   var adr_simplon_co = 'http://open.mapquestapi.com/nominatim/v1/search?format=json&q=simplon.co,Montreuil,France';
+        //   var adr_simplon_ve = 'http://open.mapquestapi.com/nominatim/v1/search?format=json&q=poleyrieux,Le Cheylard,France';
+
+        // // Geocode Paris
+        // $('#cloudmade-oms-positioning').click(function() {
+        //     var _this = this;
+        //     $(this).addClass('btn-warning');
+         
+        //     // get position from MapQuest Nominatim service
+        //     $.getJSON(
+        //         adr_simplon_ve, 
+        //         function(data) {
+        //             map.setView([data[0].lat, data[0].lon], 17);
+        //             $(_this).removeClass('btn-warning').addClass('btn-success');
+        //         }
+        //     );
+        //     return false;
+        // });
             
         </script>        
     </body>    
